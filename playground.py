@@ -14,18 +14,11 @@ def load_data_example():
         tar.load_and_save()
 
 
-def open_in_pandas_example_cvs() -> pd.DataFrame:
-    # 1. Take path from DataLoader
-    path = ConsolidatedSanctionsTargetsLoader().path()
-    # 2. Load data to DataFrame. Note: opensanctions have 1 entry per line.
-    return pd.read_json(path, lines=True)
-
-
-def open_in_pandas_example_json() -> pd.DataFrame:
-    # 1. Take path from DataLoader
-    path = ConsolidatedSanctionsEntriesLoader().path()
-    # 2. Load data to DataFrame.
-    return pd.read_json(path, lines=True)
+def open_data_frame_example() -> pd.DataFrame:
+    # 1. Take DataLoader
+    loader = ConsolidatedSanctionsEntriesLoader()
+    # 2. Call open function
+    return loader.open()
 
 
 def main():

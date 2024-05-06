@@ -4,6 +4,8 @@ from pathlib import Path
 import requests
 import tqdm
 
+import pandas as pd
+
 
 class DataLoader:
     """
@@ -23,6 +25,14 @@ class DataLoader:
         """
         Local location of data corresponding to project root
         :return:
+        """
+        pass
+
+    @abstractmethod
+    def open(self) -> pd.DataFrame:
+        """
+        Opens local file in pandas.DataFrame if exists
+        :return: pd.DataFrame
         """
         pass
 
@@ -50,6 +60,9 @@ class DataLoader:
 
 class ConsolidatedSanctionsTargetsLoader(DataLoader):
 
+    def open(self) -> pd.DataFrame:
+        return pd.read_csv(self.path())
+
     def url(self) -> str:
         return "https://data.opensanctions.org/datasets/20240506/sanctions/targets.simple.csv"
 
@@ -58,6 +71,12 @@ class ConsolidatedSanctionsTargetsLoader(DataLoader):
 
 
 class ConsolidatedSanctionsEntriesLoader(DataLoader):
+
+    def open(self) -> pd.DataFrame:
+        # 1. Take path from DataLoader
+        path = self.path()
+        # 2. Load data to DataFrame. Note: opensanctions have 1 entry per line.
+        return pd.read_json(path, lines=True)
 
     def url(self) -> str:
         return "https://data.opensanctions.org/datasets/20240506/sanctions/entities.ftm.json"

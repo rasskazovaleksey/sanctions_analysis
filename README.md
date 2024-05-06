@@ -11,11 +11,15 @@ with economy factors and make comparison based on different models.
 ## Progression on Project Stages
 
 1. Selecting a topic that is interesting to you
-    1. Create hypnosis under test (TODO(1): disscuss with @lena and we might add/edit hypothesis)
+    1. Create hypnosis under test (TODO(1): discuss with @lena and we might add/edit hypothesis)
     2. Write readme with task decomposition (TODO(1): finish readme after discussion)
     3. Decompose tasks (TODO(1): finish after discussion)
 2. Collecting/finding data (TODO: partially done in "Sources" section, just refactor)
+    1. Collect data from opensanctions :x:
+    2. Collect data for market prises :x:
+    3. Collect data on foreign trade :x:
 3. Cleaning data/handling missing values
+    1. Preprocess opensanctions data.
 4. Data analysis – attribute dependencies
 5. Creating a dashboard - charts, tables, with descriptions so that you can learn more about the
    selected topic, data, etc.
