@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "sanctions-analysis"
+version = "0.1.0"
+description = ""
+authors = ["alex <rasskazov.aleksey@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+requests = "^2.31.0"
+pandas = "^2.2.2"
+tqdm = "^4.66.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
