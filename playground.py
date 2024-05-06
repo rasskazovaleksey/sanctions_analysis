@@ -7,7 +7,8 @@ def load_data_example():
     # 1. Create instance of DataLoader
     targets = [
         ConsolidatedSanctionsTargetsLoader(),
-        ConsolidatedSanctionsEntriesLoader()
+        ConsolidatedSanctionsEntriesLoader(),
+        DefaultSanctionsEntriesLoader()
     ]
     # 2. call load data to update entries
     for tar in targets:
@@ -22,7 +23,7 @@ def open_data_frame_example() -> pd.DataFrame:
 
 
 def main():
-    pass
+    DefaultSanctionsEntriesLoader().load_and_save()
 
 
 if __name__ == "__main__":

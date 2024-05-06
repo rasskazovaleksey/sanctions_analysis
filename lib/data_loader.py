@@ -83,3 +83,18 @@ class ConsolidatedSanctionsEntriesLoader(DataLoader):
 
     def path(self) -> Path:
         return Path("data/sanctions_entries.json")
+    
+
+class DefaultSanctionsEntriesLoader(DataLoader):
+
+    def open(self) -> pd.DataFrame:
+        # 1. Take path from DataLoader
+        path = self.path()
+        # 2. Load data to DataFrame. Note: opensanctions have 1 entry per line.
+        return pd.read_json(path, lines=True)
+
+    def url(self) -> str:
+        return "https://data.opensanctions.org/datasets/20240506/default/entities.ftm.json"
+
+    def path(self) -> Path:
+        return Path("data/sanctions_default.json")
