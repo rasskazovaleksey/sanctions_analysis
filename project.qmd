@@ -1,0 +1,137 @@
+---
+title: "PAD project"
+author: "Alexey Rasskazov"
+format: 
+    revealjs:
+        code-fold: show
+from: markdown+emoji
+jupyter: python3
+---
+
+# Topic
+
+::: {.notes}
+AI can assist in various situations. We can implement simple statistical analysis and achieve great results.
+:::
+
+## Heart Disease
+
+- Cleveland
+- Hungarian
+- Switzerland
+- Long Beach VA
+- Statlog (Heart) Data Set.
+
+::: {.notes}
+This heart disease dataset is curated by combining five popular heart disease datasets that were previously available independently but not combined before.
+:::
+
+# Collecting and finding data
+
+[Heart Disease Dataset](https://www.kaggle.com/datasets/mexwell/heart-disease-dataset)
+
+::: {.notes}
+The dataset is sourced from Kaggle.
+:::
+
+## Dowloading dataset
+
+{{< embed notebook.ipynb#download_dataset echo=true >}}
+
+::: {.notes}
+The dataset is automatically downloaded to the local data folder. Ensure you set your Kaggle username and authentication key.
+:::
+
+# Cleaning data and handling missing values
+
+::: {.notes}
+Let's explore the dataset for the most obvious errors.
+:::
+
+## Visualize incorrect rows
+
+{{< embed notebook.ipynb#clean_data echo=true >}}
+
+::: {.notes}
+Two rows are clearly impossible for human beings. The first has a heart rate of zero beats per second, and the second has a slope of the peak exercise ST segment of zero, which is not possible according to the documentation.
+:::
+
+# Data analysis – attribute dependencies
+
+::: {.notes}
+This section focuses on attribute dependencies.
+:::
+
+## Heatmap
+
+{{< embed notebook.ipynb#heatmap >}}
+
+::: {.notes}
+The main attributes describing variance in the data are chest pain type, exercise-induced angina, and the slope of the peak exercise ST segment.
+:::
+
+# Creating a dashboard
+
+```{bash}
+python3 dashboard.py
+```
+
+::: {.notes}
+A dashboard is created using Plotly, showing the distribution of variables.
+:::
+
+# *Evaluation
+Problem type: classification
+
+::: {.notes}
+Let's move to the evaluation part.
+:::
+
+## Split data
+
+{{< embed notebook.ipynb#data_split echo=true >}}
+
+::: {.notes}
+The data was split into training and testing datasets.
+:::
+
+## Data preparation
+
+{{< embed notebook.ipynb#data_preparation echo=true >}}
+
+::: {.notes}
+The cleaned data was prepared for evaluation.
+:::
+
+## Training data
+
+{{< embed notebook.ipynb#training_data echo=true >}}
+
+::: {.notes}
+The data was trained on various models.
+:::
+
+## Stat analysis
+
+{{< embed notebook.ipynb#training_data >}}
+
+::: {.notes}
+Stat analysis is dane with use of precision, recall, f1-score
+:::
+
+## Accuracy Comparison
+
+{{< embed notebook.ipynb#accuracy_comparison >}}
+
+::: {.notes}
+The Random Forest algorithm shows the best results.
+:::
+
+## Building a tree
+
+{{< embed notebook.ipynb#tree >}}
+
+::: {.notes}
+Here is the decision tree itself.
+:::
+
